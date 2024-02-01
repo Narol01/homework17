@@ -5,14 +5,15 @@
 
 .field input{
    display: none;
+    
 }
 
 .field label{
     display: block;
-    width: 100px;
-    height: 40px;
-    background-color: #848484;
-    transition: background-color 1s;
+    width: 60px;
+    height: 20px;
+    border:1px solid #848484;
+    background-color:#848484;
     position: relative;
 }
 .field label::after{
@@ -20,22 +21,41 @@
     display: flex;
     justify-content: center;
     align-items:center;
-    width: 50px;
-    height: 35px;
+    width: 50%;
+    height: 100%;
     background-color: #ffffff;
     position: absolute;
     color: #848484;
-    left: 2px;
-    top: 2.5px;
-    transition: left 1s;
+    left: 0px;
+    top: 0px;
+    transition: left;
+    transition-duration: 1s;
+    font-size: 10px;
 }
-
+.field label::before{
+    content: "ON";
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    color:#ffffff;
+    width: 50%;
+    height: 100%;
+    transform:translateX(100%);
+    top: 0px;
+    font-size: 10px;
+}
+.field input:checked+label::before{
+    content: "OFF";
+    transform:translateX(0%);
+}
 .field input:checked+label::after{
     content: "ON";
     color: #6fde5f;
-    left: 48px;
+    left: 50%;
 }
 
 .field input:checked+label{
+    border:1px solid #6fde5f;
     background-color: #6fde5f;
+
 }
